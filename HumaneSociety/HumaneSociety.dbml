@@ -14,20 +14,6 @@
       <Association Name="Adopter_Approved_Adoption" Member="Approved_Adoptions" ThisKey="Adopter_ID" OtherKey="Adopter_ID" Type="Approved_Adoption" />
     </Type>
   </Table>
-  <Table Name="dbo.Animals" Member="Animals">
-    <Type Name="Animal">
-      <Column Name="Animal_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Breed" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Personality" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Adoption_Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Shots" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Animal_Approved_Adoption" Member="Approved_Adoptions" ThisKey="Animal_ID" OtherKey="Animal_ID" Type="Approved_Adoption" />
-    </Type>
-  </Table>
   <Table Name="dbo.Approved_Adoption" Member="Approved_Adoptions">
     <Type Name="Approved_Adoption">
       <Column Name="Adopter_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -44,6 +30,21 @@
       <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Animals" Member="Animals">
+    <Type Name="Animal">
+      <Column Name="Animal_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Breed" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Personality" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Adoption_Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Shots" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Animal_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Animal_Approved_Adoption" Member="Approved_Adoptions" ThisKey="Animal_ID" OtherKey="Animal_ID" Type="Approved_Adoption" />
     </Type>
   </Table>
 </Database>
