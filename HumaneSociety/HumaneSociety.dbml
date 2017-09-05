@@ -1,29 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HumaneSociety" Class="HumaneSocietyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-18UETF6;Initial Catalog=HumaneSociety;Integrated Security=True" SettingsObjectName="HumaneSociety.Properties.Settings" SettingsPropertyName="HumaneSocietyConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Employees" Member="Employees">
-    <Type Name="Employee">
-      <Column Name="Employee_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+  <Table Name="dbo.Adopter" Member="Adopters">
+    <Type Name="Adopter">
+      <Column Name="Adopter_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="State" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ZipCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Room" Member="Rooms">
-    <Type Name="Room">
-      <Column Name="Room_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Animal_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Animal_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Animal_Room" Member="Animal" ThisKey="Animal_ID" OtherKey="Animal_ID" Type="Animal" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Transactions" Member="Transactions">
-    <Type Name="Transaction">
-      <Column Name="Transaction_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TransactionNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ZipCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Adopter_Approved_Adoption" Member="Approved_Adoptions" ThisKey="Adopter_ID" OtherKey="Adopter_ID" Type="Approved_Adoption" />
     </Type>
   </Table>
   <Table Name="dbo.Animals" Member="Animals">
@@ -32,22 +20,30 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Breed" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="Personality" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="Color" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Personality" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Adoption_Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Animal_Room" Member="Rooms" ThisKey="Animal_ID" OtherKey="Animal_ID" Type="Room" />
+      <Column Name="Shots" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Animal_Approved_Adoption" Member="Approved_Adoptions" ThisKey="Animal_ID" OtherKey="Animal_ID" Type="Approved_Adoption" />
     </Type>
   </Table>
-  <Table Name="dbo.Adopter" Member="Adopters">
-    <Type Name="Adopter">
+  <Table Name="dbo.Approved_Adoption" Member="Approved_Adoptions">
+    <Type Name="Approved_Adoption">
       <Column Name="Adopter_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="State" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="ZipCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Animal_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Adoption_Approval" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Adopter_Approved_Adoption" Member="Adopter" ThisKey="Adopter_ID" OtherKey="Adopter_ID" Type="Adopter" IsForeignKey="true" />
+      <Association Name="Animal_Approved_Adoption" Member="Animal" ThisKey="Animal_ID" OtherKey="Animal_ID" Type="Animal" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Employee_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -17,7 +17,7 @@ namespace HumaneSociety
             newEmployee.Employee_ID = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Please enter your Password");
-            newEmployee.Password = Console.ReadLine();
+            newEmployee.Pass = Console.ReadLine();
 
             Console.WriteLine("Please enter your First Name");
             newEmployee.FirstName = Console.ReadLine();
@@ -43,7 +43,7 @@ namespace HumaneSociety
             person.Adopter_ID = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Please establish a password for you account");
-            person.Password = int.Parse(Console.ReadLine());
+            person.Pass = Console.ReadLine();
 
             Console.WriteLine("Please enter your Name");
             person.Name = Console.ReadLine();
@@ -63,8 +63,6 @@ namespace HumaneSociety
             Console.WriteLine("Please enter your Phone Number");
             person.PhoneNumber = int.Parse(Console.ReadLine());
 
-
-
             Data.Adopters.InsertOnSubmit(person);
             Data.SubmitChanges();
             var things = from entries in Data.Adopters where entries.Name == "nathan" select entries;
@@ -82,7 +80,38 @@ namespace HumaneSociety
             Data.SubmitChanges();
             var doggy = from entries in Data.Animals where entries.Name == "Sammy" select entries;
             Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
-            Console.ReadLine();
+           public void GetStatusOnShot(dog)
+        {
+            if (Shot = No)
+            {
+                Console.WriteLine("Shots need to be updated,  would you like to update");
+                Console.ReadLine();
+                //need to update shots if they say yes
+            }
+            else
+                return;
+                
+        }
+        public void GetTypeOfAnimal()
+        { 
+            Console.WriteLine("What type of Animal are you searching for?");
+            Animals = Console.ReadLine().ToLower();
+            switch (Animals)
+            {      
+                case "Dog":
+                    Console.WriteLine("You choose a dog");
+                    break;
+                case "Cat":
+                    Console.WriteLine("You choose a cat");
+                    break;
+                case "Small Animals":
+                    Console.WriteLine("You choose a small animal");
+                    break;
+                default:
+                    break;
+                                  
+            }
+
 
         }
     }
