@@ -11,7 +11,10 @@ namespace HumaneSociety
         static void Main(string[] args)
         {
             Customer customer = new Customer();
-            customer.GetAdopterInfo();
+            EmployeeUser employeeUser = new EmployeeUser();
+            //customer.GetAdopterInfo();
+            employeeUser.GetAnimalInfo();
+            
 
            // customer.GetTypeOfAnimal();
             //HumaneSocietyDataContext Data = new HumaneSocietyDataContext();

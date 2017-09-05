@@ -39,11 +39,11 @@ namespace HumaneSociety
 
             Console.WriteLine("Please enter your Phone Number");
             person.PhoneNumber = int.Parse(Console.ReadLine());
-            //HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
-            //Data.Adopters.InsertOnSubmit(person);
-            //Data.SubmitChanges();
-            //var things = from entries in Data.Adopters where entries.Name == "nathan" select entries;
-           // Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Adopter_ID);
+            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+            Data.Adopters.InsertOnSubmit(person);
+            Data.SubmitChanges();
+            var things = from entries in Data.Adopters where entries.Name == "nathan" select entries;
+            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Adopter_ID);
             Console.ReadLine();
         }
    }

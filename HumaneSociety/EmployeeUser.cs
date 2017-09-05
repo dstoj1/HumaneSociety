@@ -9,13 +9,53 @@ namespace HumaneSociety
     class EmployeeUser
     {
         Employee employee = new Employee();
-        //Animal dog = new Animal();
-        //            //dog.Name = "Sammy";
-        //            //dog.Name = "Harley";
-        //            //dog.Name = "Penny";
-        //            //dog.Name = "Princess";
-        //            //dog.Name = "Bruce";
-        //            //dog.Name = "Molly";
+        public void GetAnimalInfo()
+        {
+            Animal species = new Animal();
+
+            Console.WriteLine("What is the Animal's ID?");
+            species.Animal_ID = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("What is the Animal's Name?");
+            species.Name = Console.ReadLine();
+
+            Console.WriteLine("What is the Animal's Breed?");
+            species.Breed = Console.ReadLine();
+
+            Console.WriteLine("What is the Animal's Age?");
+            species.Age = int.Parse (Console.ReadLine());
+
+            Console.WriteLine("What is the Animal's Gender?");
+            species.Gender = Console.ReadLine();
+
+            Console.WriteLine("What is the Animal's Personality?");
+            species.Personality = Console.ReadLine();
+
+            Console.WriteLine("What color is the Animal?");
+            species.Color = Console.ReadLine();
+
+            Console.WriteLine("What is the Animal's Adoption Price?");
+            species.Adoption_Price = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Does the Animal have it's shots?");
+            species.Shots = Console.ReadLine();
+
+            Console.WriteLine("What Species is the Animal?");
+            species.Animal_Type = (Console.ReadLine());
+
+            Console.WriteLine("How much food will the Animal eat in a week?");
+            species.Food = int.Parse(Console.ReadLine());
+
+
+
+            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+            Data.Animals.InsertOnSubmit(species);
+            Data.SubmitChanges();
+            var things = from entries in Data.Animals where entries.Name == "nathan" select entries;
+            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
+            Console.ReadLine();
+            
+        }
         //            Data.Animals.InsertOnSubmit(dog);
         //            Data.SubmitChanges();
         //            var doggy = from entries in Data.Animals where entries.Name == "Sammy" select entries;
