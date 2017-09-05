@@ -8,15 +8,15 @@ namespace HumaneSociety
 {
     public class Animal
     {
-        public static List<Animal>GetAnimal()
+        public static List<Animal> GetAnimal()
         {
-                HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
-                var animal = from entries in Data.Animals select entries;
-                return animal.ToList();
+            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+            var animal = from entries in Data.Animals select entries;
+            return animal.ToList();
         }
         public Animal GetSelectedAnimal(int Animal_ID)
         {
-                 HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
             Animal typeOfAnimal = (from entries in Data.Animals where entries.Animal_ID == Animal_ID select entries).First();
             return typeOfAnimal;
         }
@@ -40,9 +40,22 @@ namespace HumaneSociety
             try
             {
                 HumaneSocietyDataContext Data = new HumaneSocietyDataContext;
+                Animal obj = (from entries in Data.Animals where entries.Animal_ID.Contains(Animal_ID) select entries).First();
+                if (obj != null)
+                {
 
+                    Data.Animals.DeleteOnSubmit(obj);
+                    Data.SubmitChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            catch
+            {
+                return false;
             }
         }
-
     }
 }
