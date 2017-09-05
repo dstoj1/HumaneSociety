@@ -9,19 +9,6 @@ namespace HumaneSociety
     class EmployeeUser
     {
         Employee employee = new Employee();
-
-        //            //dog.Name = "Sammy";
-        //            //dog.Name = "Harley";
-        //            //dog.Name = "Penny";
-        //            //dog.Name = "Princess";
-        //            //dog.Name = "Bruce";
-        //            //dog.Name = "Molly";
-        //            Data.Animals.InsertOnSubmit(dog);
-        //            Data.SubmitChanges();
-        //            var doggy = from entries in Data.Animals where entries.Name == "Sammy" select entries;
-        //            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
-        //           public void GetStatusOnShot(dog)
-        //        {
         //Animal dog = new Animal();
         //            //dog.Name = "Sammy";
         //            //dog.Name = "Harley";
@@ -44,6 +31,13 @@ namespace HumaneSociety
         //    else
         //        return;
 
+        //}
+        //public void SetAnimalFood(dog)
+        //{
+        //    if (
+        //    {
+
+        //    }
         //}
 
         //             public static List<Animal> GetAnimal()

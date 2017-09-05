@@ -13,27 +13,6 @@ namespace HumaneSociety
         {
 
         }
-
-        public void GetTypeOfAnimal()
-        {
-            Console.WriteLine("What type of Animal are you searching for?");
-            string animals = Console.ReadLine().ToLower();
-            switch (animals)
-            {
-                case "Dog":
-                    Console.WriteLine("You choose a dog");
-                    break;
-                case "Cat":
-                    Console.WriteLine("You choose a cat");
-                    break;
-                case "Small Animals":
-                    Console.WriteLine("You choose a small animal");
-                    break;
-                default:
-                    break;
-
-            }
-        }
             public void GetAdopterInfo() {
             Adopter person = new Adopter();
 
@@ -60,11 +39,11 @@ namespace HumaneSociety
 
             Console.WriteLine("Please enter your Phone Number");
             person.PhoneNumber = int.Parse(Console.ReadLine());
-            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
-            Data.Adopters.InsertOnSubmit(person);
-            Data.SubmitChanges();
-            var things = from entries in Data.Adopters where entries.Name == "nathan" select entries;
-            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Adopter_ID);
+            //HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+            //Data.Adopters.InsertOnSubmit(person);
+            //Data.SubmitChanges();
+            //var things = from entries in Data.Adopters where entries.Name == "nathan" select entries;
+           // Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Adopter_ID);
             Console.ReadLine();
         }
    }
