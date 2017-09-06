@@ -769,6 +769,8 @@ namespace HumaneSociety
 		
 		private System.Nullable<int> _Room;
 		
+		private string _Adopted;
+		
 		private EntitySet<Approved_Adoption> _Approved_Adoptions;
 		
     #region Extensibility Method Definitions
@@ -799,6 +801,8 @@ namespace HumaneSociety
     partial void OnFoodChanged();
     partial void OnRoomChanging(System.Nullable<int> value);
     partial void OnRoomChanged();
+    partial void OnAdoptedChanging(string value);
+    partial void OnAdoptedChanged();
     #endregion
 		
 		public Animal()
@@ -1043,6 +1047,26 @@ namespace HumaneSociety
 					this._Room = value;
 					this.SendPropertyChanged("Room");
 					this.OnRoomChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adopted", DbType="VarChar(50)")]
+		public string Adopted
+		{
+			get
+			{
+				return this._Adopted;
+			}
+			set
+			{
+				if ((this._Adopted != value))
+				{
+					this.OnAdoptedChanging(value);
+					this.SendPropertyChanging();
+					this._Adopted = value;
+					this.SendPropertyChanged("Adopted");
+					this.OnAdoptedChanged();
 				}
 			}
 		}
