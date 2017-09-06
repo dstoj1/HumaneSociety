@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimalInfo.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="EmployeeUser.cs" />
     <Compile Include="HumaneSociety.designer.cs">
