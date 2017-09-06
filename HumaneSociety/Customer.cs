@@ -55,73 +55,83 @@ namespace HumaneSociety
             switch (animal)
             {
                 case "Species":
-                    animal = getSpecies(criteria);
+                    animal = getSpecies();
                     break;
                 case "Color":
-                    animal = getColor(criteria);
+                    animal = getColor();
                     break;
                 case "Name":
-                    animal = getName(criteria);
+                    animal = getName();
                     break;
                 case "Breed":
-                    animal = getBreed(criteria);
+                    animal = getBreed();
                     break;
                 case "Gender":
-                    animal = getGender(criteria);
+                    animal = getGender();
                     break;
                 case "Personality":
-                    animal = getPersonality(criteria);
+                    animal = getPersonality();
                     break;
                 case "Adoption Price":
-                    animal = getAdoption_Price(criteria);
+                    animal = getAdoption_Price();
                     break;
                 case "Shots":
-                    animal = getShots(criteria);
+                    animal = getShots();
                     break;
                 case "Age":
-                    animal = getAge(criteria);
+                    animal = getAge();
                     break;
                 default:
                     break;
             }
         }
 
-//        private object getSpecies(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getColor(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getName(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getBreed(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getGender(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getSpecies(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getSpecies(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getSpecies(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
-//        private object getSpecies(object criteria)
-//        {
-//            throw new NotImplementedException();
-//        }
+        private string getAge()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getShots()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getAdoption_Price()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getPersonality()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getGender()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getBreed()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getName()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getColor()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getSpecies()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
 //        public void GetTypeOfAnimal()
 //        {
 //            Console.WriteLine("What type of Animal are you searching for?");
