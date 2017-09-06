@@ -8,6 +8,7 @@ namespace HumaneSociety
 {
     class Customer
     {
+        private string criteria;
 
         public Customer()
         {
@@ -47,24 +48,98 @@ namespace HumaneSociety
             //Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Adopter_ID);
             //Console.ReadLine();
         }
-        public void GetTypeOfAnimal()
+        public void GetCertainCriteria(string species)
         {
-            Console.WriteLine("What type of Animal are you searching for?");
-            string animals = Console.ReadLine().ToLower();
-            switch (animals)
+            Console.WriteLine("Search by: \n Species \n Name \n  Breed \n Gender \n Personality \n Color \n  Shots \n  Age \n Adoption Price");
+            string animal = Console.ReadLine().ToString();
+            switch (animal)
             {
-                case "Dog":
-                    Console.WriteLine("You choose a dog");
+                case "Species":
+                    animal = getSpecies(criteria);
                     break;
-                case "Cat":
-                    Console.WriteLine("You choose a cat");
+                case "Color":
+                    animal = getColor(criteria);
                     break;
-                case "Small Animals":
-                    Console.WriteLine("You choose a small animal");
+                case "Name":
+                    animal = getName(criteria);
+                    break;
+                case "Breed":
+                    animal = getBreed(criteria);
+                    break;
+                case "Gender":
+                    animal = getGender(criteria);
+                    break;
+                case "Personality":
+                    animal = getPersonality(criteria);
+                    break;
+                case "Adoption Price":
+                    animal = getAdoption_Price(criteria);
+                    break;
+                case "Shots":
+                    animal = getShots(criteria);
+                    break;
+                case "Age":
+                    animal = getAge(criteria);
                     break;
                 default:
                     break;
             }
         }
-    }
-}
+
+//        private object getSpecies(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getColor(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getName(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getBreed(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getGender(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getSpecies(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getSpecies(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getSpecies(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        private object getSpecies(object criteria)
+//        {
+//            throw new NotImplementedException();
+//        }
+//        public void GetTypeOfAnimal()
+//        {
+//            Console.WriteLine("What type of Animal are you searching for?");
+//            string animals = Console.ReadLine().ToLower();
+//            switch (animals)
+//            {
+//                case "Dog":
+//                    Console.WriteLine("You choose a dog");
+//                    break;
+//                case "Cat":
+//                    Console.WriteLine("You choose a cat");
+//                    break;
+//                case "Small Animals":
+//                    Console.WriteLine("You choose a small animal");
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    }
+//}

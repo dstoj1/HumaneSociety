@@ -13,6 +13,7 @@ namespace HumaneSociety
     {
         Employee employee = new Employee();
         private static string yes;
+        private object criteria;
 
         public void Worker()
         {
@@ -80,7 +81,7 @@ namespace HumaneSociety
             Console.WriteLine("How much food will the Animal eat in a week?");
             species.Food = GetInt();
 
-            Console.WriteLine("What Room it the Animal in?");
+            Console.WriteLine("What Room is the Animal in?");
             species.Room = GetInt();
 
             HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
@@ -137,35 +138,7 @@ namespace HumaneSociety
                 return false;
             }
         }
-    }
-    //            Data.Animals.InsertOnSubmit(dog);
-    //            Data.SubmitChanges();
-    //            var doggy = from entries in Data.Animals where entries.Name == "Sammy" select entries;
-    //            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
-    //    public void GetStatusShot(Animal animal)
-    //{
-    //    if (Shot == No)
-    //    {
-    //        Console.WriteLine("Shots need to be updated,  would you like to update");
-    //        Console.ReadLine();
-    //        }
-    //    else
-    //        return;
-    //}
-    //public void SetAnimalFood(dog)
-    //{
-    //    if (
-    //    {
-
-    //    }
-    //}
-
-    //             public static List<Animal> GetAnimal()
-    //        {
-    //            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
-    //            var animal = from entries in Data.Animals select entries;
-    //            return animal.ToList();
-    //        }
+      
     //public void GetSelectedAnimal()
     //{
     //    HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
