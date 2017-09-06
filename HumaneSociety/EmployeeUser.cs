@@ -31,7 +31,7 @@ namespace HumaneSociety
             species.Color = Console.ReadLine();
 
             Console.WriteLine("Does the Animal have it's shots?");
-            species.Shots = Console.ReadLine();
+            species.Shots = GetYesOrNo();
 
             Console.WriteLine("What Species is the Animal?");
             species.Animal_Type = (Console.ReadLine());
@@ -49,10 +49,24 @@ namespace HumaneSociety
             HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
             Data.Animals.InsertOnSubmit(species);
             Data.SubmitChanges();
-            var things = from entries in Data.Animals where entries.Name == "nathan" select entries;
-            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
-            Console.ReadLine();
+            //var things = from entries in Data.Animals where entries.Name == "nathan" select entries;
+            //Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
+            //Console.ReadLine();
 
+        }
+
+        private string GetYesOrNo()
+        {
+            string input = Console.ReadLine().ToLower();
+            if (input == "yes" || input == "no")
+            {
+                return input;
+            }
+            else
+            {
+                Console.WriteLine("input not accepted please enter yes or no");
+                return GetYesOrNo();
+            }
         }
 
         private int? GetInt()
@@ -67,7 +81,7 @@ namespace HumaneSociety
                 return GetInt();
             }
         }
-       
+
         public static bool UpdateShots(Animal animal)
         {
             try
@@ -85,79 +99,82 @@ namespace HumaneSociety
             {
                 return false;
             }
-            //            Data.Animals.InsertOnSubmit(dog);
-            //            Data.SubmitChanges();
-            //            var doggy = from entries in Data.Animals where entries.Name == "Sammy" select entries;
-            //            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
-            //public void GetStatusOnShot(Animal animal)
-            //{
-            //    if (Shot == No)
-            //    {
-            //        Console.WriteLine("Shots need to be updated,  would you like to update");
-            //        Console.ReadLine();
-            //        need to update shots if they say yes
-            //    }
-            //    else
-            //        return;
-            //}
-            //public void SetAnimalFood(dog)
-            //{
-            //    if (
-            //    {
-
-            //    }
-            //}
-
-            //             public static List<Animal> GetAnimal()
-            //        {
-            //            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
-            //            var animal = from entries in Data.Animals select entries;
-            //            return animal.ToList();
-            //        }
-            //        public Animal GetSelectedAnimal(int Animal_ID)
-            //        {
-            //            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
-            //            Animal typeOfAnimal = (from entries in Data.Animals where entries.Animal_ID == Animal_ID select entries).First();
-            //            return typeOfAnimal;
-            //        }
-            //        public static bool AddAnimal(Animal animal)
-            //        {
-            //            try
-            //            {
-            //                HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
-            //                //Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
-            //                Data.Animals.InsertOnSubmit(animal);
-            //                Data.SubmitChanges();
-            //                return true;
-            //            }
-            //            catch
-            //            {
-            //                return false;
-            //            }
-            //        }
-            //        public static bool DeleteAnimal(int Animal_ID)
-            //        {
-            //            try
-            //            {
-            //                HumaneSocietyDataContext Data = new HumaneSocietyDataContext;
-            //                Animal obj = (from entries in Data.Animals where entries.Animal_ID.Contains(Animal_ID) select entries).First();
-            //                if (obj != null)
-            //                {
-
-            //                    Data.Animals.DeleteOnSubmit(obj);
-            //                    Data.SubmitChanges();
-            //                    return true;
-            //                }
-            //                else
-            //                {
-            //                    return false;
-            //                }
-            //            catch
-            //            {
-            //                return false;
-            //            }
         }
     }
-}
+    //            Data.Animals.InsertOnSubmit(dog);
+    //            Data.SubmitChanges();
+    //            var doggy = from entries in Data.Animals where entries.Name == "Sammy" select entries;
+    //            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
+    //    public void GetStatusShot(Animal animal)
+    //{
+    //    if (Shot == No)
+    //    {
+    //        Console.WriteLine("Shots need to be updated,  would you like to update");
+    //        Console.ReadLine();
+    //        }
+    //    else
+    //        return;
+    //}
+    //public void SetAnimalFood(dog)
+    //{
+    //    if (
+    //    {
+
+    //    }
+    //}
+
+    //             public static List<Animal> GetAnimal()
+    //        {
+    //            HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+    //            var animal = from entries in Data.Animals select entries;
+    //            return animal.ToList();
+    //        }
+
+              //public void GetSelectedAnimal(int Animal_ID)
+              //  {
+              //     HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+              //     Animal typeOfAnimal = (from entries in Data.Animals where entries.Animal_ID == Animal_ID select entries).First();
+              //     return typeOfAnimal;
+              //  }
+        //        public static bool AddAnimal(Animal animal)
+        //        {
+        //            try
+        //            {
+        //                HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
+        //                //Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Animal_ID);
+        //                Data.Animals.InsertOnSubmit(animal);
+        //                Data.SubmitChanges();
+        //                return true;
+        //            }
+        //            catch
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //        public static bool DeleteAnimal(int Animal_ID)
+        //        {
+        //            try
+        //            {
+        //                HumaneSocietyDataContext Data = new HumaneSocietyDataContext;
+        //                Animal obj = (from entries in Data.Animals where entries.Animal_ID.Contains(Animal_ID) select entries).First();
+        //                if (obj != null)
+        //                {
+
+        //                    Data.Animals.DeleteOnSubmit(obj);
+        //                    Data.SubmitChanges();
+        //                    return true;
+        //                }
+        //                else
+        //                {
+        //                    return false;
+        //                }
+        //            catch
+        //            {
+        //                return false;
+        //            }
+    }
+  
+ 
+
     
  
