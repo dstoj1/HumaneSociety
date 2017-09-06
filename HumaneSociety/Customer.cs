@@ -43,9 +43,9 @@ namespace HumaneSociety
             HumaneSocietyDataContext Data = new HumaneSocietyDataContext();
             Data.Adopters.InsertOnSubmit(person);
             Data.SubmitChanges();
-            var things = from entries in Data.Adopters where entries.Name == "nathan" select entries;
-            Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Adopter_ID);
-            Console.ReadLine();
+            //var things = from entries in Data.Adopters where entries.Name == "nathan" select entries;
+            //Console.WriteLine(things.ToList()[0].Name + " " + things.ToList()[0].Adopter_ID);
+            //Console.ReadLine();
         }
         public void GetTypeOfAnimal()
         {

@@ -8,5 +8,22 @@ namespace HumaneSociety
 {
     class Transaction
     {
+        public double startingMoney = 350.00;
+        public Transaction()
+        {
+
+
+        }
+        public bool AddTotal(double total)
+        {
+            if (total < startingMoney)
+            {
+                startingMoney += total;
+                Console.WriteLine(startingMoney);
+                return true;
+            }
+            return false;
+        }
     }
 }
+
